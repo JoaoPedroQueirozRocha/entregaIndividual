@@ -7,7 +7,7 @@ const database = JSON.parse(localStorage.getItem("database"));
 getTarefasSemanais(database);
 
 function addClicks() {
-  window.location.assign("./cadastrarTarefa.html");
+  window.location.assign("cadastrarTarefa.html");
 }
 
 function getTarefasSemanais(db) {
