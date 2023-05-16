@@ -32,7 +32,6 @@ main {
     justify-content: center;
     width: 70%;
     height: 100vh;
-    background: linear-gradient(rgba(7, 110, 45, 0.515), rgba(7, 110, 45, 0.515)), url('../img/banner') no-repeat;
     background-size: cover;
     background-position: center center;
 }
@@ -40,12 +39,12 @@ main {
 #titleBanner {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 38px;
-    color: white;
+    color: #33dba3;
     text-align: center;
 }
 
 #line {
-    border-bottom: 4px solid white;
+    border-bottom: 4px solid #33dba3;
     width: 13%;
 }
 
@@ -130,19 +129,20 @@ main {
 .typeLossText {
     display: flex;
     font-size: 15px;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin-top: 2%;
-    text-align: center;
+    align-items: center;
 }
 
 .typeLossImg {
+    filter: invert();
     height: 50px;
     margin-left: 2%;
 }
 
 .choices:hover {
     cursor: pointer;
-    background-color: #ebebeb;
+    background-color: #33dba3;
 }
 
 #password:hover {
@@ -156,8 +156,8 @@ main {
 }
 
 label {
-    color: #ababab;
-    font-family: 'Trebuchet MS', sans-serif;
+    color: white;
+    font-family: 'Roboto', sans-serif;
     font-size: 17px;
 }
 
