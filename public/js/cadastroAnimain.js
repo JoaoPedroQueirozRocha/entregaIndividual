@@ -7,17 +7,17 @@ if (window.location.href.includes("/view/cadastrarAnimais1.html")) {
 
   dog.addEventListener("click", () => {
     window.location.assign(
-      `../view/cadastrarAnimais2?tipo=cachorro&path=../public/img/dog.svg`
+      `https://joaopedroqueirozrocha.github.io/entregaIndividual/view/cadastrarAnimais2?tipo=cachorro&path=../public/img/dog.svg`
     );
   });
   cat.addEventListener("click", () => {
     window.location.assign(
-      "../view/cadastrarAnimais2?tipo=gato&path=../public/img/cat.svg"
+      "https://joaopedroqueirozrocha.github.io/entregaIndividual/view/cadastrarAnimais2?tipo=gato&path=../public/img/cat.svg"
     );
   });
   outro.addEventListener("click", () => {
     window.location.assign(
-      "../view/cadastrarAnimais2?tipo=outro&path=../public/img/paw.svg"
+      "https://joaopedroqueirozrocha.github.io/entregaIndividual/view/cadastrarAnimais2?tipo=outro&path=../public/img/paw.svg"
     );
   });
 }
