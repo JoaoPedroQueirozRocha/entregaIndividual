@@ -7,17 +7,17 @@ if (window.location.href.includes("/view/cadastrarAnimais1.html")) {
 
   dog.addEventListener("click", () => {
     window.location.assign(
-      `../view/cadastrarAnimais2.html?tipo=cachorro&path=../public/img/dog.svg`
+      `../view/cadastrarAnimais2?tipo=cachorro&path=../public/img/dog.svg`
     );
   });
   cat.addEventListener("click", () => {
     window.location.assign(
-      "../view/cadastrarAnimais2.html?tipo=gato&path=../public/img/cat.svg"
+      "../view/cadastrarAnimais2?tipo=gato&path=../public/img/cat.svg"
     );
   });
   outro.addEventListener("click", () => {
     window.location.assign(
-      "../view/cadastrarAnimais2.html?tipo=outro&path=../public/img/paw.svg"
+      "../view/cadastrarAnimais2?tipo=outro&path=../public/img/paw.svg"
     );
   });
 }
