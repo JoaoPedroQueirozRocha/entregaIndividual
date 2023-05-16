@@ -22,7 +22,7 @@ if (window.location.href.includes("/view/cadastrarAnimais1")) {
   });
 }
 
-if (window.location.href.includes("/view/cadastrarAnimais2.html")) {
+if (window.location.href.includes("/view/cadastrarAnimais2")) {
   cadastrar.addEventListener("click", () => {
     const url = new URL(window.location.href);
     const tipo = url.searchParams.get("tipo");
