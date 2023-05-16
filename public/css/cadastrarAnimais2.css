@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body,
 html {
     margin: 0;
@@ -36,7 +38,7 @@ main {
 }
 
 #titleBanner {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Roboto', 'sans-serif';
     font-size: 38px;
     color: white;
     text-align: center;
@@ -48,7 +50,7 @@ main {
 }
 
 #banner p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Roboto', 'sans-serif';
     color: white;
     text-align: center;
     padding: 2%;
@@ -93,7 +95,7 @@ main {
 }
 
 #loginTitle {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Roboto', 'sans-serif';
     font-size: 38px;
     color: #33dba3;
     text-align: center;
@@ -118,7 +120,7 @@ main {
 #password {
     width: 100%;
     border: #686868 solid 2px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Roboto', 'sans-serif';
     font-size: 22px;
     color: white;
     padding: 4% 2% 2% 2%;
@@ -165,7 +167,7 @@ label {
     align-items: center;
     background-color: #33dba3;
     color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Roboto', 'sans-serif';
     font-size: 20px;
     font-weight: 550;
     padding: 14px 10px 14px 10px;
