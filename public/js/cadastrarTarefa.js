@@ -43,7 +43,7 @@ function incluirTarefa() {
     database = JSON.stringify(database);
     localStorage.removeItem("database");
     localStorage.setItem("database", database);
-    window.location.assign("../index.html");
+    window.location.assign("../view/agendaSemanal.html");
   } else {
     alert("Favor preencher todos os dados.");
   }
