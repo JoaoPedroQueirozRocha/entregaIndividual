@@ -1,6 +1,6 @@
 let database = JSON.parse(localStorage.getItem("database"));
 
-if (window.location.href.includes("/view/cadastrarAnimais1.html")) {
+if (window.location.href.includes("/view/cadastrarAnimais1")) {
   const dog = document.querySelector("#dog");
   const cat = document.querySelector("#cat");
   const outro = document.querySelector("#outro");
