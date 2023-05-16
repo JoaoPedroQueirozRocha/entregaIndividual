@@ -38,7 +38,7 @@ let dados = {
               repetir: "20/10/2023",
             },
           ],
-          tarefaNewId: 0,
+          tarefaNewId: 6,
           cor: "#8568fc",
           tarefas: [
             {
