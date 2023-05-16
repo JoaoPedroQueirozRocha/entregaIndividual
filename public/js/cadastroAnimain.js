@@ -54,6 +54,6 @@ if (window.location.href.includes("/view/cadastrarAnimais2")) {
     database = JSON.stringify(database);
     localStorage.removeItem("database");
     localStorage.setItem("database", database);
-    window.location.assign(`../view/vacinas.html`);
+    window.location.assign(`../view/vacinas`);
   });
 }
