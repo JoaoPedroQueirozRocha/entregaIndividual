@@ -7,6 +7,7 @@ if (window.location.href.includes("/view/cadastrarAnimais1.html")) {
 
   dog.addEventListener("click", () => {
     window.location.assign(
+      console.log("funcional");
       `https://joaopedroqueirozrocha.github.io/entregaIndividual/view/cadastrarAnimais2?tipo=cachorro&path=../public/img/dog.svg`
     );
   });
