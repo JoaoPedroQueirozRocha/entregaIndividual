@@ -55,5 +55,6 @@ if (window.location.href.includes("/view/cadastrarAnimais2")) {
     localStorage.removeItem("database");
     localStorage.setItem("database", database);
     window.location.assign(`../view/vacinas`);
+    console.log('teste');
   });
 }
