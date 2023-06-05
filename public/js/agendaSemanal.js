@@ -11,19 +11,19 @@ setTimeout(() => {
 
 const vacina = document.querySelector("#vacina .menu-icons");
 vacina.addEventListener("click", () => {
-  window.location.assign(`../view/vacinas.html`);
+  window.location.assign(`../view/vacinas`);
 });
 const perfil = document.querySelector("#perfil .menu-icons");
 perfil.addEventListener("click", () => {
-  window.location.assign(`../view/perfil.html`);
+  window.location.assign(`../view/perfil`);
 });
 const pet = document.querySelector("#pet .menu-icons");
 pet.addEventListener("click", () => {
-  window.location.assign(`../view/pet.html`);
+  window.location.assign(`../view/pet`);
 });
 const calendario = document.querySelector("#calendario .menu-icons");
 calendario.addEventListener("click", () => {
-  window.location.assign(`../view/calendario.html`);
+  window.location.assign(`../view/calendario`);
 });
 
 const menu_icon = document
@@ -32,7 +32,7 @@ const menu_icon = document
 menu_icon.style.background = "#74e8b7";
 
 function addClicks() {
-  window.location.assign("../view/cadastrarTarefa.html");
+  window.location.assign("../view/cadastrarTarefa");
 }
 const database = JSON.parse(localStorage.getItem("database"));
 // getTarefasSemanais(database);

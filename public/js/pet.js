@@ -17,23 +17,23 @@ menu_icon.style.background = "#74e8b7";
 
 const perfil = document.querySelector("#perfil .menu-icons");
 perfil.addEventListener("click", () => {
-  window.location.assign(`../view/perfil.html`);
+  window.location.assign(`../view/perfil`);
 });
 const rotina = document.querySelector("#rotina .menu-icons");
 rotina.addEventListener("click", () => {
-  window.location.assign(`../view/agendaSemanal.html`);
+  window.location.assign(`../view/agendaSemanal`);
 });
 const vacina = document.querySelector("#vacina .menu-icons");
 vacina.addEventListener("click", () => {
-  window.location.assign(`../view/vacinas.html`);
+  window.location.assign(`../view/vacinas`);
 });
 const calendario = document.querySelector("#calendario .menu-icons");
 calendario.addEventListener("click", () => {
-  window.location.assign(`../view/calendario.html`);
+  window.location.assign(`../view/calendario`);
 });
 const cadastrarPet = document.querySelector("#adicionar");
 cadastrarPet.addEventListener("click", () => {
-  window.location.assign(`../view/cadastrarAnimais1.html`);
+  window.location.assign(`../view/cadastrarAnimais1`);
 });
 
 function populeteScreen(data) {

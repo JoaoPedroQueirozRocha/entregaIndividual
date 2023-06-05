@@ -8,19 +8,19 @@ getTarefasSemanais(database);
 
 const perfil = document.querySelector("#perfil .menu-icons");
 perfil.addEventListener("click", () => {
-  window.location.assign(`../view/perfil.html`);
+  window.location.assign(`../view/perfil`);
 });
 const rotina = document.querySelector("#rotina .menu-icons");
 rotina.addEventListener("click", () => {
-  window.location.assign(`../view/agendaSemanal.html`);
+  window.location.assign(`../view/agendaSemanal`);
 });
 const vacina = document.querySelector("#vacina .menu-icons");
 vacina.addEventListener("click", () => {
-  window.location.assign(`../view/vacinas.html`);
+  window.location.assign(`../view/vacinas`);
 });
 const pet = document.querySelector("#pet .menu-icons");
 pet.addEventListener("click", () => {
-  window.location.assign(`../view/pet.html`);
+  window.location.assign(`../view/pet`);
 });
 
 function getTarefasSemanais(db) {

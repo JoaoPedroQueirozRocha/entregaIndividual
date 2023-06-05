@@ -1,6 +1,6 @@
 let database = JSON.parse(localStorage.getItem("database"));
 
-if (window.location.href.includes("/view/cadastrarAnimais1.html")) {
+if (window.location.href.includes("/view/cadastrarAnimais1")) {
   setTimeout(() => {
     let loader = document.querySelector("#divLoader");
     let content = document.querySelector("main");
@@ -13,22 +13,22 @@ if (window.location.href.includes("/view/cadastrarAnimais1.html")) {
 
   dog.addEventListener("click", () => {
     window.location.assign(
-      `../view/cadastrarAnimais2.html?tipo=cachorro&path=../public/img/dog.svg`
+      `../view/cadastrarAnimais2?tipo=cachorro&path=../public/img/dog.svg`
     );
   });
   cat.addEventListener("click", () => {
     window.location.assign(
-      "../view/cadastrarAnimais2.html?tipo=gato&path=../public/img/cat.svg"
+      "../view/cadastrarAnimais2?tipo=gato&path=../public/img/cat.svg"
     );
   });
   outro.addEventListener("click", () => {
     window.location.assign(
-      "../view/cadastrarAnimais2.html?tipo=outro&path=../public/img/paw.svg"
+      "../view/cadastrarAnimais2?tipo=outro&path=../public/img/paw.svg"
     );
   });
 }
 
-if (window.location.href.includes("/view/cadastrarAnimais2.html")) {
+if (window.location.href.includes("/view/cadastrarAnimais2")) {
   const cadastrar = document.querySelector("#cadastrar");
   cadastrar.addEventListener("click", () => {
     const url = new URL(window.location.href);
@@ -69,6 +69,6 @@ if (window.location.href.includes("/view/cadastrarAnimais2.html")) {
     database = JSON.stringify(database);
     localStorage.removeItem("database");
     localStorage.setItem("database", database);
-    window.location.assign(`../view/perfil.html`);
+    window.location.assign(`../view/perfil`);
   });
 }
