@@ -1,9 +1,35 @@
-const menu_icon = document
-  .querySelector("#vacina")
-  .querySelector(".menu-icons");
-menu_icon.style.background = "#74e8b7";
-const database = JSON.parse(localStorage.getItem("database"));
-getVacinas(database);
+setTimeout(()=>{
+    let loader = document.querySelector('#divLoader');
+    let content = document.querySelector('section');
+    let header = document.querySelector('header');
+    let aside = document.querySelector('aside');
+    loader.style.display = 'none'
+    content.style.display = 'flex'
+    header.style.display = 'flex'
+    aside.style.display = 'flex'
+}, 1800);
+
+const menu_icon = (document.querySelector('#vacina')).querySelector('.menu-icons')
+menu_icon.style.background = '#74e8b7'
+const database = JSON.parse(localStorage.getItem('database'))
+getVacinas(database)
+
+const perfil = document.querySelector("#perfil .menu-icons")
+perfil.addEventListener('click', ()=>{
+    window.location.assign(`../view/perfil.html`)
+})
+const rotina = document.querySelector("#rotina .menu-icons")
+rotina.addEventListener('click', ()=>{
+    window.location.assign(`../view/agendaSemanal.html`)
+})
+const calendario = document.querySelector("#calendario .menu-icons")
+calendario.addEventListener('click', ()=>{
+    window.location.assign(`../view/calendario.html`)
+})
+const pet = document.querySelector("#pet .menu-icons")
+pet.addEventListener('click', ()=>{
+    window.location.assign(`../view/pet.html`)
+})
 
 function getVacinas(db) {
   const divVacinas = document.querySelector("#vacinas");
@@ -76,7 +102,7 @@ function getVacinas(db) {
     const p = document.querySelectorAll("p");
     quebraLinha(p);
   });
-  addClicks(pets);
+  addClicks(pets)
 }
 
 function quebraLinha(p) {
@@ -88,20 +114,20 @@ function quebraLinha(p) {
   }
 }
 
-function addClicks(pets) {
-  let adicionar;
-  pets.forEach((value) => {
-    adicionar = document.querySelector(`#adicionar${value.id}`);
-    adicionar.addEventListener("click", () => {
-      window.location.assign(`../view/cadastrovacina.html?petId=${value.id}`);
-    });
-  });
+function addClicks(pets){
+    let adicionar
+    pets.forEach((value)=>{
+        adicionar = document.querySelector(`#adicionar${value.id}`)
+        adicionar.addEventListener('click', ()=>{
+            window.location.assign(`../view/cadastrovacina.html?petId=${value.id}`)
+        })
+    })
 }
 
-const mediaQueryList = window.matchMedia("(max-width: 1132px)");
+const mediaQueryList = window.matchMedia('(max-width: 1132px)');
 mediaQueryList.addListener(function (mediaQueryList) {
-  if (mediaQueryList.matches) {
-    const p = document.querySelectorAll("p");
-    quebraLinha(p);
-  }
+    if (mediaQueryList.matches) {
+        const p = document.querySelectorAll("p");
+        quebraLinha(p)
+    }
 });

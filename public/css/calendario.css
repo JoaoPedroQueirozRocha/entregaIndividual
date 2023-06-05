@@ -1,0 +1,26 @@
+@import url('http://fonts.googleapis.com/css?family=Roboto');
+
+
+
+body,
+html {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+}
+
+main{
+    position: relative;
+    height: 100vh;
+}
+
+/* #containerCalendario{
+    height: 100vh;
+} */
+
+#calendar{
+    overflow: visible;
+    position: relative;
+    height: 100vh;  
+}

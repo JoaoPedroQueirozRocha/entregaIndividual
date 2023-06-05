@@ -1,0 +1,41 @@
+#popup{
+display: hidden;
+position:absolute;
+top: 0;
+right: 0;
+margin: 5%;
+flex-direction: column;
+width: 20%;
+z-index: 1000;
+background-color: lightgray;
+border-radius: 6px;
+padding: 10px;
+}
+
+#hoje{
+padding: 6px;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 3px;
+gap: 10px;
+}
+
+#hoje p{
+    font-size: large;
+}
+
+#close:hover{
+    cursor: pointer;
+}
+
+.notifications{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#hoje img{
+    width: 15%;
+    height: 15% ;
+}

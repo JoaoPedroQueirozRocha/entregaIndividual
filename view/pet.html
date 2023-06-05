@@ -1,28 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" href="../public/css/perfil.css">
+    <title>Animais</title>
+    <link rel="stylesheet" href="../public/css/pet.css">
     <link rel="icon" href="../public/img/logo.svg">
 </head>
 <body>
-    <div id="confirmacao">
-        <div id="confirmarDelete">
-            <h1 id="close">x</h1>
-            <div id="confirmContent">
-                <div id="tituloDelete">
-                    <h2>Tem certeza que deseja deletar?</h2>
-                </div>
-                <div id="botoes">
-                    <button id="cancelar">Cancelar</button>
-                    <button id="deletar">Deletar</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="content">
         <aside>
             <div id="logo">
@@ -81,7 +67,7 @@
                 <div class="loader"></div>
             </div>
             <header>
-                <h1>Perfil</h1>
+                <h1>Animais</h1>
                 <div id="lateral-icons">
                     <div class="icons" id="divNotificacao">
                         <span id="haveNotification"></span>
@@ -92,51 +78,16 @@
                     </div>
                 </div>
             </header>
-            <section>
-                <div id="perfilDivExterna">
-                    <div id="perfilDiv">
-                        <div id="fotoPerfilDiv">
-                            <img id="foto" src="../public/img/perfil.svg" alt="foto de perfil">
-                            <div id="edit">
-                                <img id="editar" src="../public/img/edit.svg" alt="botão de editar">
-                            </div>
-                        </div>
-                        <h3>Nome</h3>
-                        <button id="novaTarefa">Nova Tarefa</button>
-                        <div id="grafico">
-                            <canvas id="myChart"></canvas>
-                        </div>
-                    </div>
+            <section id="">
+                <div id="tituloPets">
+                    <h1>Pets</h1>
+                    <img src="../public/img/adicionar.svg" alt="adicionar" id="adicionar">
                 </div>
-                <div id="programacao">
-                    <div id="pets">
-                        <div id="tituloPets">
-                            <h1>Pets</h1>
-                            <img src="../public/img/adicionar.svg" alt="adicionar" id="adicionar">
-                        </div>
-                        <div id="petsCard"></div>
-                    </div>
-                    <div id="agenda">
-                        <h1>Agenda</h1>
-                        <div class="demostracaoTarefa">
-                            <div id="agendaHeader">
-                                <h3 id="todos" class="activeTarefa">Todos</h3>
-                                <h3 id="aFazer">A Fazer</h3>
-                                <h3 id="lembretes">Lembretes</h3>
-                            </div>
-                            <div id="underline">
-                                <div id="underlineActive"></div>
-                            </div>
-                            <div id="listaTarefas">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="meusPets"></div>
             </section>
         </main>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../controller/databaseController.js"></script>
-    <script src="../public/js/perfil.js"></script>
+    <script src="../public/js/pet.js"></script>
 </body>
 </html>

@@ -1,28 +1,35 @@
 let database = JSON.parse(localStorage.getItem("database"));
 
-if (window.location.href.includes("/view/cadastrarAnimais1")) {
+if (window.location.href.includes("/view/cadastrarAnimais1.html")) {
+  setTimeout(() => {
+    let loader = document.querySelector("#divLoader");
+    let content = document.querySelector("main");
+    loader.style.display = "none";
+    content.style.display = "flex";
+  }, 1800);
   const dog = document.querySelector("#dog");
   const cat = document.querySelector("#cat");
   const outro = document.querySelector("#outro");
 
   dog.addEventListener("click", () => {
     window.location.assign(
-      `https://joaopedroqueirozrocha.github.io/entregaIndividual/view/cadastrarAnimais2?tipo=cachorro&path=../public/img/dog.svg`
+      `../view/cadastrarAnimais2.html?tipo=cachorro&path=../public/img/dog.svg`
     );
   });
   cat.addEventListener("click", () => {
     window.location.assign(
-      "https://joaopedroqueirozrocha.github.io/entregaIndividual/view/cadastrarAnimais2?tipo=gato&path=../public/img/cat.svg"
+      "../view/cadastrarAnimais2.html?tipo=gato&path=../public/img/cat.svg"
     );
   });
   outro.addEventListener("click", () => {
     window.location.assign(
-      "https://joaopedroqueirozrocha.github.io/entregaIndividual/view/cadastrarAnimais2?tipo=outro&path=../public/img/paw.svg"
+      "../view/cadastrarAnimais2.html?tipo=outro&path=../public/img/paw.svg"
     );
   });
 }
 
-if (window.location.href.includes("/view/cadastrarAnimais2")) {
+if (window.location.href.includes("/view/cadastrarAnimais2.html")) {
+  const cadastrar = document.querySelector("#cadastrar");
   cadastrar.addEventListener("click", () => {
     const url = new URL(window.location.href);
     const tipo = url.searchParams.get("tipo");
@@ -31,8 +38,14 @@ if (window.location.href.includes("/view/cadastrarAnimais2")) {
     const idadeAnimal = document.querySelector(".idadeAnimal");
     const pesoAnimal = document.querySelector(".pesoAnimal");
     const racaAnimal = document.querySelector(".racaAnimal");
-    const cadastrar = document.querySelector("#cadastrar");
-    database.user[0].newPetId += 1;
+    if (!tipo || !path) {
+      alert("Pet cadastrado incorretamente, tente novamente mais tarde");
+      return;
+    } else if (!nomAnimal.value || !idadeAnimal.value || !pesoAnimal.value) {
+      alert("Digite todos os dados necessários");
+      return;
+    }
+    database.user[0].newPetId = 1 + database.user[0].newPetId;
     cor =
       "#" +
       Math.floor(Math.random() * 0x1000000)
@@ -43,18 +56,19 @@ if (window.location.href.includes("/view/cadastrarAnimais2")) {
       nome: nomAnimal.value,
       idade: idadeAnimal.value,
       peso: pesoAnimal.value,
-      raca: racaAnimal.value,
+      raça: racaAnimal.value,
       tipo: tipo,
       path: path,
       cor: cor,
-      newVacinaId: 1,
+      tarefaNewId: 0,
+      tarefas: [],
+      newVacinaId: 0,
       vacinas: [],
     };
     database.user[0].pets.push(dados);
     database = JSON.stringify(database);
     localStorage.removeItem("database");
     localStorage.setItem("database", database);
-    window.location.assign(`../view/vacinas`);
-    console.log('teste');
+    window.location.assign(`../view/perfil.html`);
   });
 }

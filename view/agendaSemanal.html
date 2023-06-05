@@ -1,126 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotina</title>
+    <link rel="icon" href="../public/img/logo.svg" />
+    <link rel="stylesheet" href="../public/css/agendaSemanal.css" />
+    <link rel="stylesheet" href="../public/css/popup.css" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../public/css/agendaSemanal.css">
-    <link rel="icon" href="../public/img/logo.svg">
-</head>
-
-<body>
-    <div id="content">
-        <aside>
-            <div id="logo">
-                <img src="../public/img/logo.svg">
-            </div>
-            <div id="icons">
-                <div id="menu" class="outside">
-                    <div class="menu-icons">
-                        <img src="../public/img/perfil.svg" alt="perfil">
-                        <p>Perfil</p>
-                    </div>
-                    <div class="active">
-                        <div class="cor-interna"></div>
-                    </div>
-                </div>
-                <div id="vacina" class="outside">
-                    <div class="menu-icons">
-                        <img src="../public/img/vacina.svg" alt="Vacina">
-                        <p>Vacina</p>
-                    </div>
-                    <div class="active">
-                        <div class="cor-interna"></div>
-                    </div>
-                </div>
-                <div id="canlendario" class="outside">
-                    <div class="menu-icons">
-                        <img src="../public/img/calendario.svg" alt="calendario">
-                        <p>Calendar</p>
-                    </div>
-                    <div class="active">
-                        <div class="cor-interna"></div>
-                    </div>
-                </div>
-                <div id="comida" class="outside">
-                    <div class="menu-icons">
-                        <img src="../public/img/comida.svg" alt="comida">
-                        <p>Comida</p>
-                    </div>
-                    <div class="active">
-                        <div class="cor-interna"></div>
-                    </div>
-                </div>
-                <div id="rotina" class="outside">
-                    <div class="menu-icons">
-                        <img src="../public/img/rotina.svg" alt="rotina">
-                        <p>Rotina</p>
-                    </div>
-                    <div class="active">
-                        <div class="cor-interna"></div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-        <main>
-            <header>
-                <h1>Tarefas</h1>
-                <div id="lateral-icons">
-                    <div class="icons" id="divNotificacao">
-                        <span id="haveNotification"></span>
-                        <img src="../public/img/notificacao.svg" alt="notificações" id="notificacao">
-                    </div>
-                    <div class="icons">
-                        <img src="../public/img/perfil.svg" alt="foto de perfil" id="fotoPerfil">
-                    </div>
-                </div>
-            </header>
-            <section id="tarefas">
-                <div id="divAdd">
-                    <h3 id="atualSemana"></h3>
-                    <img src="../public/img/adicionar.svg" alt="adicionar" class="adicionar" id="adicionar"
-                        onclick="addClicks()">
-                </div>
-                <div id="semana">
-                    <div id="domingo" class="coluna">
-                        <h3 class="days">DOMINGO</h3>
-                        <div class="dias" id="day0"></div>
-                    </div>
-                    <div id="segunda" class="coluna">
-                        <h3 class="days">SEGUNDA</h3>
-                        <div id="day1"></div>
-                    </div>
-
-                    <div id="terca" class="coluna">
-                        <h3 class="days">TERÇA</h3>
-                        <div id="day2"></div>
-                    </div>
-                    <div id="quarta" class="coluna">
-                        <h3 class="days">QUARTA</h3>
-                        <div id="day3"></div>
-                    </div>
-                    <div id="quinta" class="coluna">
-                        <h3 class="days">QUINTA</h3>
-                        <div id="day4"></div>
-                    </div>
-                    <div id="sexta" class="coluna">
-                        <h3 class="days">SEXTA</h3>
-                        <div id="day5"></div>
-                    </div>
-                    <div id="sabado">
-                        <h3 class="days">SABADO</h3>
-                        <div id="day6"></div>
-                    </div>
-                </div>
-
+  <body>
+    <div id="popup">
+      <div id="close">X</div>
+      <div id="hoje"></div>
+      <div id="todos"></div>
     </div>
-    </section>
-    </main>
+
+    <div id="content">
+      <aside>
+        <div id="logo">
+          <img src="../public/img/logo.svg" />
+        </div>
+        <div id="icons">
+          <div id="perfil" class="outside">
+            <div class="menu-icons">
+              <img src="../public/img/perfil.svg" alt="perfil" />
+              <p>Perfil</p>
+            </div>
+            <div class="active">
+              <div class="cor-interna"></div>
+            </div>
+          </div>
+          <div id="vacina" class="outside">
+            <div class="menu-icons">
+              <img src="../public/img/vacina.svg" alt="Vacina" />
+              <p>Vacina</p>
+            </div>
+            <div class="active">
+              <div class="cor-interna"></div>
+            </div>
+          </div>
+          <div id="calendario" class="outside">
+            <div class="menu-icons">
+              <img src="../public/img/calendario.svg" alt="calendario" />
+              <p>Calendar</p>
+            </div>
+            <div class="active">
+              <div class="cor-interna"></div>
+            </div>
+          </div>
+          <div id="pet" class="outside">
+            <div class="menu-icons">
+              <img src="../public/img/paw.svg" alt="pet" />
+              <p>Animais</p>
+            </div>
+            <div class="active" id="activePet">
+              <div class="cor-interna"></div>
+            </div>
+          </div>
+          <div id="rotina" class="outside">
+            <div class="menu-icons">
+              <img src="../public/img/rotina.svg" alt="rotina" />
+              <p>Rotina</p>
+            </div>
+            <div class="active">
+              <div class="cor-interna"></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <main>
+        <div id="divLoader">
+          <div class="loader"></div>
+        </div>
+        <header>
+          <h1>Tarefas</h1>
+          <div id="lateral-icons">
+            <div class="icons" id="divNotificacao">
+              <span id="haveNotification"></span>
+              <img
+                src="../public/img/notificacao.svg"
+                alt="notificações"
+                id="notificacao"
+              />
+            </div>
+            <div class="icons">
+              <img
+                src="../public/img/perfil.svg"
+                alt="foto de perfil"
+                id="fotoPerfil"
+              />
+            </div>
+          </div>
+        </header>
+        <section id="tarefas">
+          <div id="divAdd">
+            <h3 id="atualSemana"></h3>
+            <img
+              src="../public/img/adicionar.svg"
+              alt="adicionar"
+              class="adicionar"
+              id="adicionar"
+              onclick="addClicks()"
+            />
+          </div>
+          <!-- <div id="semana"> -->
+          <disv id="calendar" class="relative p-10"></disv>
+          <!-- </div> -->
+        </section>
+      </main>
     </div>
     <script src="../controller/databaseController.js"></script>
     <script src="../public/js/agendaSemanal.js"></script>
-</body>
-
+    <script>
+      const events = getTarefasSemanais(database);
+      //   console.log(events);
+      document.addEventListener("DOMContentLoaded", function () {
+        let calendarEl = document.getElementById("calendar");
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+          views: {
+            dayGridWeek: {
+              titleFormat: { day: "2-digit", month: "2-digit" },
+            },
+          },
+          locale: "pt-Br",
+          initialView: "dayGridWeek",
+          events,
+          eventDisplay: "block",
+          defaultTimedEventDuration: "00:00:00",
+          forceEventDuration: true,
+        });
+        calendar.render();
+      });
+    </script>
+  </body>
 </html>

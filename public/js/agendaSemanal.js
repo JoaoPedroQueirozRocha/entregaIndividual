@@ -1,148 +1,119 @@
+setTimeout(() => {
+  let loader = document.querySelector("#divLoader");
+  let content = document.querySelector("section");
+  let header = document.querySelector("header");
+  let aside = document.querySelector("aside");
+  loader.style.display = "none";
+  content.style.display = "flex";
+  header.style.display = "flex";
+  aside.style.display = "flex";
+}, 1050);
+
+const vacina = document.querySelector("#vacina .menu-icons");
+vacina.addEventListener("click", () => {
+  window.location.assign(`../view/vacinas.html`);
+});
+const perfil = document.querySelector("#perfil .menu-icons");
+perfil.addEventListener("click", () => {
+  window.location.assign(`../view/perfil.html`);
+});
+const pet = document.querySelector("#pet .menu-icons");
+pet.addEventListener("click", () => {
+  window.location.assign(`../view/pet.html`);
+});
+const calendario = document.querySelector("#calendario .menu-icons");
+calendario.addEventListener("click", () => {
+  window.location.assign(`../view/calendario.html`);
+});
+
 const menu_icon = document
   .querySelector("#rotina")
   .querySelector(".menu-icons");
 menu_icon.style.background = "#74e8b7";
 
-const database = JSON.parse(localStorage.getItem("database"));
-getTarefasSemanais(database);
-
 function addClicks() {
   window.location.assign("../view/cadastrarTarefa.html");
 }
+const database = JSON.parse(localStorage.getItem("database"));
+// getTarefasSemanais(database);
 
 function getTarefasSemanais(db) {
-  console.log(database);
+  let events = [];
   const pets = db.user[0].pets;
-  var curr = new Date();
-  var firstDay = new Date(
-    curr.setDate(curr.getDate() - curr.getDay())
-  ).toLocaleDateString("en-US", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
-  var lastDay = new Date(
-    curr.setDate(curr.getDate() - curr.getDay() + 6)
-  ).toLocaleDateString("en-US", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
 
   pets.forEach((value) => {
-    value.tarefas.sort((a, b) => {
-      const horaInicioA = parseInt(a.inicio.split("-")[1]);
-      const horaInicioB = parseInt(b.inicio.split("-")[1]);
-      return horaInicioA - horaInicioB;
-    });
+    let evento = [];
     value.tarefas.forEach((element) => {
-      let dia = new Date(element.inicio);
-      let diaRelativo = dia.getDay();
-      let horaInicio = element.inicio.split("-")[1];
-      element.fim ? (horaFim = element.fim.split("-")[1]) : (horaFim = "");
+      let data = new Date(element.inicio);
+      let anoInicio = data.getFullYear();
+      let mesInicio = ("0" + (data.getMonth() + 1)).slice(-2);
+      let diaInicio = ("0" + data.getDate()).slice(-2);
+      let horarioInicio =
+        ("0" + data.getHours()).slice(-2) +
+        ":" +
+        ("0" + data.getMinutes()).slice(-2);
+      let dataFormatadaInicio =
+        anoInicio + "-" + mesInicio + "-" + diaInicio + "T" + horarioInicio;
 
-      if (
-        (element.inicio >= firstDay && element.inicio <= lastDay) ||
-        (element.fim >= firstDay && element.fim <= lastDay) ||
-        (element.fim === "" &&
-          element.inicio >= firstDay &&
-          element.inicio <= lastDay)
-      ) {
-        switch (diaRelativo) {
-          case 0:
-            let exibicaoDomingo = document.getElementById("day0");
-            exibicaoDomingo.innerHTML += `
-          <div class="tarefa" id="tarefa${value.nome}${element.id}">
-            <h3>${element.nome}</h3>
-            <h4>${value.nome}</h4>
-            <p>${element.descricao}</p>
-            <p>${horaInicio}-${horaFim ? horaFim : ""}</p>
+      // Formatação data fim
+      let dataFim;
+      let dataFormatadaFim;
+      if (element.fim) {
+        dataFim = new Date(element.fim);
+        let anoFim = dataFim.getFullYear();
+        let mesFim = ("0" + (dataFim.getMonth() + 1)).slice(-2);
+        let diaFim = ("0" + dataFim.getDate()).slice(-2);
+        let horarioFim =
+          ("0" + dataFim.getHours()).slice(-2) +
+          ":" +
+          ("0" + dataFim.getMinutes()).slice(-2);
+        dataFormatadaFim =
+          anoFim + "-" + mesFim + "-" + diaFim + "T" + horarioFim;
+        evento = {
+          title: element.nome,
+          start: dataFormatadaInicio,
+          end: dataFormatadaFim,
+          color: value.cor,
+        };
+      } else {
+        evento = {
+          title: element.nome,
+          start: dataFormatadaInicio,
+          color: value.cor,
+        };
+      }
+      //Fim da formatação de fim
+
+      events.push(evento);
+    });
+  });
+  populePop(pets);
+  return events;
+}
+
+function populePop(pets) {
+  pets.forEach((value) => {
+    value.tarefas.forEach((element) => {
+      let dataHoje = new Date(element.inicio);
+      dataHoje = `${dataHoje.getDate()}/${dataHoje.getMonth()}/${dataHoje.getFullYear()}`;
+      let today = new Date();
+      today = `${today.getDate()}/${today.getMonth()}/${today.getFullYear()}`;
+      let popup = document.getElementById("popup");
+      if (dataHoje == today) {
+        popup.style.display = "flex";
+        $("#hoje").append(`
+          <div class='notifications'>
+              <img src="${value.path}" alt="">
+              <p>${
+                element.nome.charAt(0).toUpperCase() + element.nome.slice(1)
+              }</p>
+              <p>Hoje</p>
           </div>
-          `;
-            break;
-          case 1:
-            let exibicaoSegunda = document.getElementById("day1");
-            exibicaoSegunda.innerHTML += `
-            <div class="tarefa" id="tarefa${value.nome}${element.id}">
-              <h3>${element.nome}</h3>
-              <h4>${value.nome}</h3>
-              <p>${element.descricao}</p>
-              <p>${horaInicio}-${horaFim ? horaFim : ""}</p>
-            </div>
-            `;
-            break;
-          case 2:
-            let exibicaoTerca = document.getElementById("day2");
-            exibicaoTerca.innerHTML += `
-            <div class="tarefa" id="tarefa${value.nome}${element.id}">
-              <h3>${element.nome}</h3>
-              <h4>${value.nome}</h4>
-              <p>${element.descricao}</p>
-              <p>${horaInicio}-${horaFim ? horaFim : ""}</p>
-            </div>
-            `;
-            break;
-          case 3:
-            let exibicaoQuarta = document.getElementById("day3");
-            exibicaoQuarta.innerHTML += `
-            <div class="tarefa" id="tarefa${value.nome}${element.id}">
-              <h3>${element.nome}</h3>
-              <h4>${value.nome}</h4>
-              <p>${element.descricao}</p>
-              <p>${horaInicio}-${horaFim ? horaFim : ""}</p>
-            </div>
-            `;
-            break;
-          case 4:
-            let exibicaoQuinta = document.getElementById("day4");
-            exibicaoQuinta.innerHTML += `
-            <div class="tarefa" id="tarefa${value.nome}${element.id}">
-              <h3>${element.nome}</h3>
-              <h4>${value.nome}</h4>
-              <p>${element.descricao}</p>
-              <p>${horaInicio}-${horaFim ? horaFim : ""}</p>
-            </div>
-            `;
-            break;
-          case 5:
-            let exibicaoSexta = document.getElementById("day5");
-            exibicaoSexta.innerHTML += `
-            <div class="tarefa" id="tarefa${value.nome}${element.id}">
-              <h3>${element.nome}</h3>
-              <h4>${value.nome}</h4>
-              <p>${element.descricao}</p>
-              <p>${horaInicio}-${horaFim ? horaFim : ""}</p>
-            </div>
-            `;
-            break;
-          case 6:
-            let exibicaoSabado = document.getElementById("day6");
-            exibicaoSabado.innerHTML += `
-            <div class="tarefa" id="tarefa${value.nome}${element.id}">
-              <h3>${element.nome}</h3>
-              <h4>${value.nome}</h4>
-              <p>${element.descricao}</p>
-              <p>${horaInicio}-${horaFim ? horaFim : ""}</p>
-
-            </div>
-            `;
-            break;
-        }
-        let tarefa = document.querySelector(
-          `#tarefa${value.nome}${element.id}`
-        );
-        tarefa.style.backgroundColor = `${value.cor}`;
+          `);
+        $("#close").click(() => {
+          popup.style.display = "none";
+        });
       }
     });
-    let atualSemana = document.getElementById("atualSemana");
-    atualSemana.innerHTML = `${new Date(firstDay).toLocaleDateString("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    })} - ${new Date(lastDay).toLocaleDateString("pt-BR", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    })}`;
   });
 }

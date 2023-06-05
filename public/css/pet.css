@@ -1,14 +1,15 @@
-@import url('http://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-body,
-html {
+* {
     margin: 0;
-    width: 100%;
-    height: 100vh;
     padding: 0;
 }
 
-#content {
+body{
+    background-color: #ffffff;
+}
+
+#content{
     display: flex;
     flex-direction: row;
 }
@@ -34,7 +35,7 @@ aside {
     margin-top: 2%;
 }
 
-#logo img {
+#logo img{
     filter: invert();
     height: 6vh;
 }
@@ -44,7 +45,6 @@ aside {
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
-
 }
 
 .menu-icons {
@@ -61,7 +61,6 @@ aside {
     border: solid black 1px;
     border-radius: 10%;
     transition: background-color 0.3s ease;
-
 }
 
 .menu-icons:hover {
@@ -82,10 +81,9 @@ aside {
 }
 
 .menu-icons p {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     font-weight: bold;
     text-align: center;
-    margin: 0;
 }
 
 .active {
@@ -101,27 +99,57 @@ aside {
     border-left: 3vh solid #000000;
 }
 
-.cor-interna {
-    width: 0;
-    height: 0;
+#activePet{
+    display: flex;
+}
+
+.cor-interna{ 
+    width: 0; 
+    height: 0; 
     margin-right: 0.25vh;
     border-top: 2vh solid transparent;
     border-bottom: 2vh solid transparent;
     border-left: 3vh solid #74e8b7;
 }
 
-#rotina .active {
-    display: flex;
-}
-
 main {
     width: 100%;
+    min-height: 100vh;
     margin-left: 8%;
+}
+
+#divLoader{
+    z-index: -1;
     height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #1E8661;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 header {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -175,151 +203,156 @@ header>div {
 }
 
 section {
-    display: flex;
-    justify-content: center;
+    display: none;
     flex-direction: column;
     margin-left: 2%;
     margin-right: 2%;
-    margin-top: 3%;
+    margin-bottom: 2%;
 }
 
-#divAdd {
-    font-family: "Roboto", sans-serif;
+#tituloPets{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    width: 100%;
+    font-family: 'Roboto';
+    margin-top: 1.5%;
 }
 
-.adicionar {
-    align-items: end;
+#tituloPets h1{
+    font-size: 4.5vh;
+    margin-bottom: 2%;
+}
+
+#tituloPets img{
     height: 4.2vh;
+    margin-right: 3%;
 }
 
-.adicionar:hover {
+#tituloPets img:hover{
     cursor: pointer;
 }
 
-#semana {
+#meusPets{
     display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    /* margin-top: 4%; */
-    /* margin-bottom: 4%; */
-    background-color: #c7dbcd;
-    width: 100%;
-    height: fit-content;
-    border-radius: 6px;
-    padding: 6px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.coluna {
+.cardPet{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    border-right: 1px solid black;
-}
-
-#sabado {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    width: 100%;
-}
-
-.days {
-    display: flex;
     justify-content: center;
-    width: 100%;
-    padding: 10px 0 10px 0;
-    margin: 0;
-    border-bottom: 1px solid black;
-}
-
-.dias {
-    width: 100%;
-}
-
-.tarefa {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
-    background-color: #03b66bc5;
-    width: 80%;
-    margin: 0 0 10% 0;
-    padding: 5%;
-    text-align: center;
-    border-radius: 6px;
+    width: 20%;
+    min-width: 250px;
+    border-radius: 3vh;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-bottom: 3%;
+    margin-right: 3%;
+    font-family: 'Roboto';
 }
 
-.tarefa p {
-    margin: 0;
-
+.cardPet img{
+    height: 15vh;
+    margin-bottom: 6%;
 }
 
-.tarefa h4 {
-    margin: 0;
+.cardPet h3{
+    margin-bottom: 6%;
+    font-size: 30px;
+}
+
+.cardPet input{
+    width: 85%;
+    border: #ffffffb8 solid 2px;
     font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    padding: 4% 2% 2% 2%;
+    background-color: #ffffffb8;
+    border-radius: 5px;
+    margin-bottom: 4%;
 }
 
-.tarefa h3 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    margin: 0;
-    text-decoration: underline;
+.cardPet input:focus{
+    border: #33dba3 solid 3px;
+    outline: 0;
+    box-shadow: none;
 }
 
-#day0,
-#day1,
-#day2,
-#day3,
-#day4,
-#day5,
-#day6 {
-    font-family: 'Roboto', sans-serif;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10%;
+.cardPet button{
+    width: 90%;
+    font-size: 18px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 5px;
+    margin-top: 3%;
+    background-color: #1e1e1ee0;
+    color: white;
+    border: #1e1e1ee0 3px solid;
 }
 
-@media only screen and (min-width: 1955px) and (min-height: 825px) {
-    aside {
+.cardPet button:hover{
+    background-color: #121212e0;
+    cursor: pointer;
+    border: #33dba3 solid 3px;
+}
+
+@media only screen and (min-width: 1955px)  and (min-height: 825px) {
+    aside{
         width: 10% !important;
     }
-
-    main {
+    
+    main{
         margin-left: 10% !important;
     }
 
-    .menu-icons {
+    .menu-icons{
         height: 12vh;
     }
 
-    .menu-icons p {
+    .menu-icons p{
         font-size: 2vh;
     }
 }
 
-@media only screen and (min-width: 1486px) and (max-width: 1955px) and (min-height: 825px) {
-    aside {
+@media only screen and (min-width: 1486px) and (max-width: 1955px) and (min-height: 825px)  {
+    aside{
         width: 12% !important;
     }
 
-    main {
+    main{
         margin-left: 12% !important;
+    }
+
+    .menu-icons{
+        height: 12vh;
+    }
+
+    .menu-icons p{
+        font-size: 2vh;
+    }
+}
+
+@media only screen and (min-height: 825px)  and (max-width: 1486px) and (min-height: 825px) {
+    aside{
+        width: 15% !important;
     }
 
     .menu-icons {
         height: 12vh;
     }
 
-    .menu-icons p {
-        font-size: 2vh;
+    .menu-icons p{
+        font-size: 1.8vh;
+    }
+
+    main{
+        margin-left: 15% !important;
     }
 }
 
@@ -357,11 +390,16 @@ section {
     }
 
     aside {
+        display: none;
         flex-direction: row;
         position: sticky;
         bottom: 0;
         width: 100% !important;
         height: 10vh;
+    }
+
+    #meusPets{
+        justify-content: center;
     }
 
     #icons {
@@ -389,7 +427,7 @@ section {
         margin-left: 0;
     }
 
-    .menu-icons img {
+    .menu-icons img{
         height: 6vh;
         margin-bottom: 6%;
     }
@@ -402,7 +440,7 @@ section {
         display: none;
     }
 
-    #rotina .active {
+    #activePet{
         display: none;
     }
 }
@@ -418,17 +456,6 @@ section {
 }
 
 @media only screen and (min-height: 825px) and (max-width: 1010px) {
-    #first {
-        display: block;
-    }
-
-    #second {
-        display: block;
-    }
-
-    #tamanhoRepetirTitulo {
-        flex-direction: column;
-    }
 }
 
 @media only screen and (max-width: 846px) {
@@ -443,11 +470,16 @@ section {
 
 @media only screen and (min-height: 825px) and (max-width: 760px) {
     aside {
+        display: none;
         flex-direction: row;
         position: sticky;
         bottom: 0;
         width: 100% !important;
         height: 10vh !important;
+    }
+
+    #meusPets{
+        justify-content: center;
     }
 }
 
@@ -459,11 +491,16 @@ section {
     }
 
     aside {
+        display: none;
         flex-direction: row;
         position: sticky;
         bottom: 0;
         width: 100% !important;
         height: 13.5vh;
+    }
+
+    #meusPets{
+        justify-content: center;
     }
 
     #icons {
@@ -498,22 +535,14 @@ section {
         display: none;
     }
 
-    #activeVacina {
+    #activePet{
         display: none;
     }
 
     main {
-        height: 105vh;
+        height: max-content;
         margin-top: 2%;
         margin-left: 0;
-    }
-
-    .tituloTabela {
-        margin-top: 6%;
-    }
-
-    .adicionar {
-        height: 3.7vh;
     }
 }
 
@@ -523,43 +552,14 @@ section {
     aside {
         height: 12vh;
     }
-
-    .tabela p {
-        word-break: break-word;
-    }
-
-    .tabela h3 {
-        font-size: 2.5vh;
-    }
-
-    .doseTabela {
-        width: 17%;
-    }
-
-    .repetirTabela {
-        width: 23%;
+    #meusPets{
+        justify-content: center;
     }
 }
 
 @media only screen and (max-width: 450px) {
     .menu-icons img {
         height: 6vh;
-    }
-
-    .tituloTabela {
-        margin-bottom: 3%;
-    }
-
-    #first {
-        display: block;
-    }
-
-    #second {
-        display: block;
-    }
-
-    #tamanhoRepetirTitulo {
-        flex-direction: column;
     }
 }
 
@@ -576,7 +576,7 @@ section {
     }
 
     main {
-        height: 102vh;
+        height: max-content;
     }
 
     .icons {
@@ -595,32 +595,20 @@ section {
         width: 100%;
         height: 7vh;
     }
-
-    .dataTabela .bordaTitulo {
-        margin-left: 10%;
-    }
-
-    .dataTabela .borda {
-        margin-left: 10%;
-    }
-
-    .repetirTabela .bordaTitulo {
-        margin-right: 10%;
-    }
-
-    .repetirTabela .borda {
-        margin-right: 10%;
-    }
 }
 
 @media only screen and (max-width: 350px) {
     main {
-        height: 100vh;
+        height: max-content;
     }
 
     header h1 {
         font-family: 'Roboto';
         font-size: 3.8vh;
+    }
+
+    #tituloPets h1{
+        font-size: 3.5vh;
     }
 
     #lateral-icons {
@@ -647,21 +635,7 @@ section {
         width: 100%;
         height: 7vh;
     }
-
-    .tituloTabela h1 {
-        font-family: 'Roboto';
-        margin-left: 1.5%;
-        font-size: 3vh;
-    }
-
-    .tabela h3 {
-        font-family: 'Roboto';
-        font-size: 2.3vh;
-        padding-bottom: 3%;
-    }
 }
-
-    
 
 @media only screen and (max-width: 320px) {
     #lateral-icons {

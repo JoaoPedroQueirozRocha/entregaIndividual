@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('http://fonts.googleapis.com/css?family=Roboto');
 
 body,
 html {
@@ -7,8 +7,38 @@ html {
     width: 100%;
 }
 
-main {
+#divLoader{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #1E8661;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+main {
+    display: none;
     flex-direction: row;
     position: relative;
     height: 100vh;
@@ -37,7 +67,7 @@ main {
 }
 
 #titleBanner {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 38px;
     color: #33dba3;
     text-align: center;
@@ -49,7 +79,7 @@ main {
 }
 
 #banner p {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
     text-align: center;
     padding: 2%;
@@ -183,7 +213,7 @@ label {
     align-items: center;
     background-color: #33dba3;
     color: white;
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     font-weight: 550;
     padding: 14px 10px 14px 10px;
